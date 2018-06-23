@@ -16,7 +16,7 @@ import HapiSwagger from "hapi-swagger"
 
 const server = Hapi.server({
     host: '0.0.0.0',
-    port: 3000
+    port: 3001
 })
 
 // -------------------------- Routing -------------------------- //
@@ -48,7 +48,7 @@ async function init() {
   } catch (err) {
     console.log(err);
     process.exit(1);
-  } 
+  }
 }
 
 init()

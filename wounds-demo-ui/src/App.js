@@ -6,6 +6,7 @@ import Network from './utils/network'
 class App extends Component {
   componentDidMount() {
     Network.get("http://localhost:3000/patients")
+    Network.get("http://localhost:3000/patients/3/wounds").then(res => console.log(res))
   }
   render() {
     return (

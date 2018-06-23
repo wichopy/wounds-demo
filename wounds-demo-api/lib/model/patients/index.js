@@ -44,7 +44,7 @@ export function count(){
 }
 
 /**
- * Get patients between 
+ * Get patients between
  * @param {Number} number number of pages
  * @param {Number} limit page limit
  * @return {Array} list of patients
@@ -55,7 +55,7 @@ export function getPatients({number, limit}){
     const start = (number-1)*limit
     const end = number*limit
     filteredPatients = patients.slice(start, end)
-  } 
+  }
 
   return filteredPatients
 }

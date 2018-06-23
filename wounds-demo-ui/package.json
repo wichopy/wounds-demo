@@ -3,25 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "styled-components": "^3.3.3"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
   },
-  "proxy": {
-    "/": {
-      "target": "http://localhost:3000"
-    }
-  },
+  "proxy": "http://localhost:3001/",
   "devDependencies": {
     "@storybook/react": "^3.4.8",
     "@storybook/addon-actions": "^3.4.8",
