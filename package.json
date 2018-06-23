@@ -1,30 +1,23 @@
 {
-  "name": "wounds-demo-api",
-  "version": "0.1.0",
-  "description": "Demo API for use with front end React interview projects",
+  "name": "wounds-demo",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/.bin/babel-node lib/index.js --watch",
-    "test": "test"
+    "start": "cd wound-demo-api; pm2 start npm --name \"api\" -- run start; cd ..; cd wounds-demo-ui; pm2 start npm --name \"ui\" -- run start;",
+    "stop": "pm2 stop api; pm2 stop ui",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wichopy/wounds-demo-api.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "faker": "^4.1.0",
-    "hapi": "^17.5.1",
-    "hapi-pagination": "^2.0.0",
-    "hapi-qs": "^2.0.1",
-    "hapi-swagger": "^9.1.1",
-    "inert": "^5.1.0",
-    "joi": "^13.4.0",
-    "json-api-normalizer": "^0.4.10",
-    "jsonapi-serializer": "^3.5.6",
-    "moment": "^2.22.2",
-    "vision": "^5.3.3"
+  "bugs": {
+    "url": "https://github.com/wichopy/wounds-demo-api/issues"
   },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
-  }
+  "homepage": "https://github.com/wichopy/wounds-demo-api#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }
