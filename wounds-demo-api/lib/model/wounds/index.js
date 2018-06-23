@@ -58,9 +58,9 @@ let wounds = []
 let counter = 1;
 
 for(let i=0; i<config.numPatients; i++){
-  
+
   const numWounds = faker.random.number({
-    min: config.minWoundsPerPatient, 
+    min: config.minWoundsPerPatient,
     max: config.maxWoundsPerPatient
   });
 
@@ -91,13 +91,13 @@ for(let i=0; i<config.numPatients; i++){
 
 /**
  * Get the total number of pages
- * @param {Number} limit 
+ * @param {Number} limit
  * @return {Number} the total number of pages
  */
 export function totalPages({limit, patientId}){
 
   let filteredWounds = wounds
-  
+
   if(patientId) {
     filteredWounds = filteredWounds.filter(w => w.attributes.patientId == patientId)
   }
@@ -107,12 +107,12 @@ export function totalPages({limit, patientId}){
 
 /**
  * Get the count of number of wounds
- * @param {String} patientId 
+ * @param {String} patientId
  * @return {Number} The count
  */
 export function count({patientId}){
   let filteredWounds = wounds
-  
+
   if(patientId) {
     filteredWounds = filteredWounds.filter(w => w.attributes.patientId == patientId)
   }
@@ -128,7 +128,7 @@ export function count({patientId}){
  * @return {Array} list of wounds
  */
 export function getWounds({number, limit, patientId}){
-  
+
   let filteredWounds = wounds
 
   if(patientId) {
@@ -146,7 +146,7 @@ export function getWounds({number, limit, patientId}){
 
 /**
  * Get a patient for id
- * @param {String} id 
+ * @param {String} id
  */
 export function getWound(id){
   return wounds.find(p => p.id == id)
@@ -154,7 +154,7 @@ export function getWound(id){
 
 /**
  * Patch a wound
- * @param {Object} wound 
+ * @param {Object} wound
  */
 export function patchWound(wound){
   const index = wounds.findIndex(w => {
