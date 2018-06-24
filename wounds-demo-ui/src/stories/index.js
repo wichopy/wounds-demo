@@ -5,7 +5,9 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button, Welcome } from '@storybook/react/demo';
-import PatientListItem from '../components/PatientListItem'
+import PatientListItem from '../components/PatientListItem';
+import PatientProfile from '../components/PatientProfile';
+
 import '../App.css'
 import '../index.css'
 
@@ -23,3 +25,14 @@ storiesOf('Button', module)
 
 storiesOf('PatientListItem', module)
   .add('default', () => <PatientListItem onClick={action('clicked')} firstName="Will" lastName="Chou" dateOfBirth="2011-11-23T18:57:32.082Z" avatarUrl={'https://s3.amazonaws.com/uifaces/faces/twitter/alagoon/128.jpg'}/>);
+
+storiesOf('PatientProfile', module)
+  .add('default',  () => <PatientProfile
+    firstName={"will"}
+    lastName={"chou"}
+    dateOfBirth={"1945-05-23"}
+    address={"3562 Rollin Streets"}
+    roomNumber={34}
+    bedNumber={8}
+    avatarUrl={ "https://s3.amazonaws.com/uifaces/faces/twitter/alagoon/128.jpg"}
+  />)
