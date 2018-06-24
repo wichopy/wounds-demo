@@ -1,6 +1,8 @@
 // import ACTIONS
 
-const defaultState = {}
+const defaultState = {
+  patients: undefined,
+}
 
 const app = (state = defaultState, action) => {
   const actionType = action.actionType
