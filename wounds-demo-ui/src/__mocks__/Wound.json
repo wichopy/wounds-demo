@@ -1,0 +1,14 @@
+{
+  "type": "wounds",
+  "id": 17,
+  "attributes": {
+    "patientId": 2,
+    "type": "Moisture Associated Skin Damage",
+    "bodyLocation": "Groin",
+    "inHouseAcquired": true,
+    "resolved": true,
+    "imageUrl": "https://images.freeimages.com/images/large-previews/3e6/blood-1312378.jpg",
+    "createdAt": "2011-08-20T01:00:35.246Z",
+    "updatedAt": "2011-08-20T01:00:35.246Z"
+  }
+}
