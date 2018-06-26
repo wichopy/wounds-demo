@@ -1,15 +1,24 @@
-import { takeEvery, call, put } from 'redux-saga/effects'
+import { call, put, fork } from 'redux-saga/effects'
 import Network from './utils/network'
+import * as actions from './actions'
 
-export function* watchGetPatients() {
-  yield takeEvery(actions.GET_ALL_PATIENTS, getAllPatients)
+export function fetchPatientsApi() {
+  return Network.get('/patients')
+    .then(res => res.data)
 }
 
+
 export function* getAllPatients() {
-  const patients = yield call(
-    Network
-      .get("http://localhost:3000/patients")
-      .then(res => res.data )
-  )
-  yield put(actions.RECIEVE_PATIENTS(patients))
+  yield put(actions.requestPatients())
+  const patients = yield call(fetchPatientsApi)
+  yield put(actions.receivePatients(patients))
+}
+
+export function* startup() {
+  yield fork(getAllPatients)
+}
+
+// //fetch patients on app load.
+export default function* root() {
+  yield fork(startup)
 }
