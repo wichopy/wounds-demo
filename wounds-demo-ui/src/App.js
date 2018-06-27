@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import PatientList from './containers/PatientList'
 import PatientProfile from './components/PatientProfile'
 import BackButton from './containers/BackButton'
+import WoundList from './containers/WoundList'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
 
         {!selectedPatient && <PatientList />}
         {selectedPatient && <PatientProfile {...selectedPatient.attributes}/>}
+        <WoundList />
       </div>
     );
   }
@@ -27,7 +29,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    selectedPatient: state.patients.selectedPatient
+    selectedPatient: state.patients.selectedPatient,
   }
 }
 
