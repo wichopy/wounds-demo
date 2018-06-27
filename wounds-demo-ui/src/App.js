@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
+
+import { connect } from 'react-redux'
+
+
 import PatientList from './containers/PatientList'
+import PatientProfile from './components/PatientProfile'
+import BackButton from './containers/BackButton'
 
 class App extends Component {
   render() {
+    const { selectedPatient } = this.props
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <PatientList />
+        <Header>
+          {selectedPatient && <BackButton />}
+        </Header>
+
+        {!selectedPatient && <PatientList />}
+        {selectedPatient && <PatientProfile {...selectedPatient.attributes}/>}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    selectedPatient: state.patients.selectedPatient
+  }
+}
+
+export default connect(mapStateToProps)(App);

@@ -2,7 +2,9 @@
 import {
   REQUEST_PATIENTS,
   RECEIVE_PATIENTS,
-  // SELECT_PATIENT
+  SELECT_PATIENT,
+  RETURN_TO_PATIENT_LIST,
+
 } from './actions'
 import { combineReducers } from 'redux'
 
@@ -10,6 +12,7 @@ const patients = (
   state = {
     isFetching: false,
     items: [],
+    selectedPatient: undefined,
   },
   action
 ) => {
@@ -23,28 +26,20 @@ const patients = (
         isFetching: false,
         items: action.patients
       }
+
+    case SELECT_PATIENT:
+      const selectedPatient = state.items.find(patient => patient.id === action.patientId)
+      return {...state, selectedPatient }
+
+    case RETURN_TO_PATIENT_LIST:
+      return {...state, selectedPatient: undefined }
+
     default:
       return state
   }
 }
 
-// const selectedPatient = (
-//   state = {
-//     patientId: undefined
-//   },
-//   action
-// ) => {
-//   switch (action.type) {
-//     case SELECT_PATIENT:
-//       return {...state, patientId: action.patientId }
-
-//     default:
-//       return state
-//   }
-// }
-
 const rootReducer = combineReducers({
-  // selectedPatient,
   patients,
 })
 
