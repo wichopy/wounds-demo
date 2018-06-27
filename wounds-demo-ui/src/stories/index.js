@@ -7,6 +7,9 @@ import { linkTo } from '@storybook/addon-links';
 import { Button, Welcome } from '@storybook/react/demo';
 import PatientListItem from '../components/PatientListItem';
 import PatientProfile from '../components/PatientProfile';
+import PatientList from '../components/PatientList';
+
+import Patients from '../__mocks__/AllPatients.json'
 
 import '../App.css'
 import '../index.css'
@@ -35,4 +38,14 @@ storiesOf('PatientProfile', module)
     roomNumber={34}
     bedNumber={8}
     avatarUrl={ "https://s3.amazonaws.com/uifaces/faces/twitter/alagoon/128.jpg"}
+  />)
+
+storiesOf('PatientList', module)
+  .add('loading', () => <PatientList
+  />)
+  .add('empty', () => <PatientList
+    patients={[]}
+  />)
+  .add('default', () => <PatientList
+    patients={Patients.data}
   />)
