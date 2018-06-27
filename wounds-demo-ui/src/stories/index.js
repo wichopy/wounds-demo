@@ -11,6 +11,10 @@ import PatientList from '../components/PatientList';
 
 import Patients from '../__mocks__/AllPatients.json'
 
+
+import WoundListItem from '../components/WoundListItem'
+import Wound from '../__mocks__/Wound.json'
+
 import '../App.css'
 import '../index.css'
 
@@ -39,6 +43,9 @@ storiesOf('PatientProfile', module)
     bedNumber={8}
     avatarUrl={ "https://s3.amazonaws.com/uifaces/faces/twitter/alagoon/128.jpg"}
   />)
+
+storiesOf('WoundListItem', module)
+  .add('default', () => <WoundListItem wound={Wound}/>)
 
 storiesOf('PatientList', module)
   .add('loading', () => <PatientList
