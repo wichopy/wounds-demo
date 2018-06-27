@@ -1,4 +1,4 @@
-import { takeEvery, take, call, put, fork, select } from 'redux-saga/effects'
+import { take, call, put, fork } from 'redux-saga/effects'
 import Network from './utils/network'
 import * as actions from './actions'
 
