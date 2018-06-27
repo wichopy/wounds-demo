@@ -7,6 +7,9 @@ import { linkTo } from '@storybook/addon-links';
 import { Button, Welcome } from '@storybook/react/demo';
 import PatientListItem from '../components/PatientListItem';
 import PatientProfile from '../components/PatientProfile';
+import PatientList from '../components/PatientList';
+
+import Patients from '../__mocks__/AllPatients.json'
 
 
 import WoundListItem from '../components/WoundListItem'
@@ -43,3 +46,13 @@ storiesOf('PatientProfile', module)
 
 storiesOf('WoundListItem', module)
   .add('default', () => <WoundListItem wound={Wound}/>)
+
+storiesOf('PatientList', module)
+  .add('loading', () => <PatientList
+  />)
+  .add('empty', () => <PatientList
+    patients={[]}
+  />)
+  .add('default', () => <PatientList
+    patients={Patients.data}
+  />)

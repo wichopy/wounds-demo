@@ -1,17 +1,46 @@
 // import ACTIONS
+import {
+  REQUEST_PATIENTS,
+  RECEIVE_PATIENTS,
+  SELECT_PATIENT,
+  RETURN_TO_PATIENT_LIST,
 
-const defaultState = {}
+} from './actions'
+import { combineReducers } from 'redux'
 
-const app = (state = defaultState, action) => {
-  const actionType = action.actionType
+const patients = (
+  state = {
+    isFetching: false,
+    items: [],
+    selectedPatient: undefined,
+  },
+  action
+) => {
+  switch (action.type) {
+    case REQUEST_PATIENTS:
+      return { ...state, isFetching: true }
 
-  switch (actionType) {
-    case 'HELLO':
+    case RECEIVE_PATIENTS:
       return {
         ...state,
-        hello: 'world',
+        isFetching: false,
+        items: action.patients
       }
+
+    case SELECT_PATIENT:
+      const selectedPatient = state.items.find(patient => patient.id === action.patientId)
+      return {...state, selectedPatient }
+
+    case RETURN_TO_PATIENT_LIST:
+      return {...state, selectedPatient: undefined }
+
+    default:
+      return state
   }
 }
 
-export default app
+const rootReducer = combineReducers({
+  patients,
+})
+
+export default rootReducer
