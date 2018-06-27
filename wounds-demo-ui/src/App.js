@@ -12,7 +12,7 @@ import WoundList from './containers/WoundList'
 
 class App extends Component {
   render() {
-    const { selectedPatient, wounds } = this.props
+    const { selectedPatient } = this.props
     return (
       <div className="App">
         <Header>
