@@ -18,8 +18,6 @@
     "url": "https://github.com/wichopy/wounds-demo-api/issues"
   },
   "homepage": "https://github.com/wichopy/wounds-demo-api#readme",
-  "dependencies": {
-    "redux-logger": "^3.0.6"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
