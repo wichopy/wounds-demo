@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
-import { selectPatient } from '../actions';
-import PatientListItem from '../components/PatientListItem';
+import { connect } from "react-redux";
+import { selectPatient } from "../actions";
+import PatientListItem from "../components/PatientListItem";
 
 const mapDispatchToProps = dispatch => ({
-  onClick: id => dispatch(selectPatient(id))
-})
+  selectPatient: id => dispatch(selectPatient(id))
+});
 
 const SelectPatientListItem = connect(
   undefined, // params are not named, order matters

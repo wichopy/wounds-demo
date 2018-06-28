@@ -1,13 +1,13 @@
-import { connect } from 'react-redux'
-import PatientList from '../components/PatientList'
+import { connect } from "react-redux";
+import PatientList from "../components/PatientList";
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isFetching: state.patients.isFetching,
-    patients: state.patients.items,
-  }
-}
+    patients: state.patients.items
+  };
+};
 
-const AsyncPatientList = connect(mapStateToProps)(PatientList)
+const AsyncPatientList = connect(mapStateToProps)(PatientList);
 
-export default AsyncPatientList
+export default AsyncPatientList;

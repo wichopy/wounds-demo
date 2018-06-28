@@ -1,6 +1,6 @@
-import React from 'react'
-import moment from 'moment'
-import styled from 'styled-components'
+import React from "react";
+import moment from "moment";
+import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: flex;
@@ -22,15 +22,29 @@ const StyledDiv = styled.div`
     border-radius: 25px;
     border: 2px solid black;
   }
-`
-const PatientListItem = ({ onClick, id, firstName, lastName, avatarUrl, dateOfBirth }) => {
+`;
+const PatientListItem = ({
+  selectPatient,
+  id,
+  firstName,
+  lastName,
+  avatarUrl,
+  dateOfBirth
+}) => {
   return (
-    <StyledDiv onClick={() => onClick(id)}>
-      <img src={avatarUrl} alt={'The user profile of '+ firstName + ' ' + lastName}/>
-      <span><b>NAME:</b> {lastName}, {firstName}</span>
-      <span><b>DOB:</b> {moment(dateOfBirth).format('MMM DD YYYY')}</span>
+    <StyledDiv onClick={() => selectPatient(id)}>
+      <img
+        src={avatarUrl}
+        alt={"The user profile of " + firstName + " " + lastName}
+      />
+      <span>
+        <b>NAME:</b> {lastName}, {firstName}
+      </span>
+      <span>
+        <b>DOB:</b> {moment(dateOfBirth).format("MMM DD YYYY")}
+      </span>
     </StyledDiv>
-  )
-}
+  );
+};
 
-export default PatientListItem
+export default PatientListItem;
