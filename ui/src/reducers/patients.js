@@ -2,8 +2,8 @@ import {
   REQUEST_PATIENTS,
   RECEIVE_PATIENTS,
   SELECT_PATIENT,
-  RETURN_TO_PATIENT_LIST,
-} from '../actions'
+  RETURN_TO_PATIENT_LIST
+} from "../actions";
 
 export const patients = (
   state = {

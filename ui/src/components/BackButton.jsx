@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const StyledButton = styled.button`
   float: left;
@@ -9,9 +9,10 @@ const StyledButton = styled.button`
   transform: scale(2);
   background-color: black;
   color: white;
-`
-const BackButton = (props) => <StyledButton onClick={() => {
-  props.onClick()
-}}>{'<< Back'}</StyledButton>
+`;
 
-export default BackButton
+const BackButton = ({ onBack }) => (
+  <StyledButton onClick={onBack}>{"<< Back"}</StyledButton>
+);
+
+export default BackButton;

@@ -4,8 +4,8 @@ import {
   RECEIVE_PATIENT_WOUNDS,
   REQUEST_WOUND_RESOLVE,
   WOUND_RESOLVE_SUCCESS,
-  WOUND_RESOLVE_FAILURE,
-} from '../actions'
+  WOUND_RESOLVE_FAILURE
+} from "../actions";
 
 export const wounds = (
   state = {
@@ -13,7 +13,7 @@ export const wounds = (
     isPatching: false,
     items: [],
     patchError: false,
-    patchSuccess: false,
+    patchSuccess: false
   },
   action
 ) => {
@@ -37,26 +37,28 @@ export const wounds = (
     case REQUEST_WOUND_RESOLVE:
       return {
         ...state,
-        isPatching: true,
+        isPatching: true
       };
     case WOUND_RESOLVE_SUCCESS:
-      const { patchedWound } = action
-      const index = state.items.findIndex(wound => wound.id === patchedWound.id)
-      const nextItems = [...state.items]
-      nextItems[index] = patchedWound
+      const { patchedWound } = action;
+      const index = state.items.findIndex(
+        wound => wound.id === patchedWound.id
+      );
+      const nextItems = [...state.items];
+      nextItems[index] = patchedWound;
 
       return {
         ...state,
         isPatching: false,
         patchSuccess: true,
-        items: nextItems,
-      }
+        items: nextItems
+      };
     case WOUND_RESOLVE_FAILURE:
       return {
         ...state,
         isPatching: false,
-        patchError: true,
-      }
+        patchError: true
+      };
     default:
       return state;
   }
