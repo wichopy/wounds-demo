@@ -1,5 +1,5 @@
 import React from 'react'
-import WoundListItem from './WoundListItem'
+import WoundListItem from '../containers/WoundListItem'
 
 const WoundList = ({ wounds }) => {
   return <div>

@@ -1,8 +1,14 @@
 class Network {
-  get = async endpoint => {
-    const response = await fetch(endpoint)
-    let result = await response.json()
-    return result
+  get = endpoint => {
+    return fetch(endpoint)
+      .then(response => response.json())
+  }
+
+  patch = (endpoint, payload) => {
+    return fetch(endpoint, {
+      body: JSON.stringify(payload),
+      method: 'PATCH'
+    }).then(response => response.json())
   }
 }
 

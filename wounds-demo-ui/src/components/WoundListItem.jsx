@@ -14,16 +14,17 @@ const StyledDiv = styled.div`
     height: 20px;
   }
 `
-const WoundListItem = ({ wound }) => {
-  const woundAttributes = wound.attributes
+const WoundListItem = ({ wound, resolveWound }) => {
+  const { type, bodyLocation, inHouseAcquired, resolved, imageUrl } = wound.attributes
   return (
     <StyledDiv>
-      <div>Type: {woundAttributes.type}</div>
-      <div>Body Location: {woundAttributes.bodyLocation}</div>
-      <div>In house acquired: {woundAttributes.inHouseAcquired ? 'Yes' : 'No'}</div>
-      <div>Resolved: {woundAttributes.resolved ? 'Yes' : 'No'}</div>
+      <div>Type: {type}</div>
+      <div>Body Location: {bodyLocation}</div>
+      <div>In house acquired: {inHouseAcquired ? 'Yes' : 'No'}</div>
+      <div>Resolved: {resolved ? 'Yes' : 'No'}</div>
       <button style={{ float: 'right'}}>Show wound image</button>
-      <img src={woundAttributes.imageUrl} alt={'Wound image for wound '+wound.id}/>
+      {!!!resolved ? <button onClick={() => resolveWound(wound)}>Resolve Wound</button> : null }
+      <img src={imageUrl} alt={'Wound image for wound '+wound.id}/>
     </StyledDiv>
   )
 }
