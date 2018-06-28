@@ -42,7 +42,7 @@ const PatientProfile = ({
 }) => {
   return (
     <StyledDiv>
-      <img src={avatarUrl} />
+      <img src={avatarUrl} alt="patient profile avatar"/>
       <div className="patient-info">
         <div>
           <p>
