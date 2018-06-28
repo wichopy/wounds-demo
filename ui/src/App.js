@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header'
-
 import { connect } from 'react-redux'
 
-
+import Header from './components/Header'
 import PatientList from './containers/PatientList'
-import PatientProfile from './components/PatientProfile'
+import PatientProfile from './containers/PatientProfile'
 import BackButton from './containers/BackButton'
-import WoundList from './containers/WoundList'
+import Footer from './components/Footer'
 
 class App extends Component {
   render() {
@@ -16,12 +14,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header>
-          {selectedPatient && <BackButton />}
+          {selectedPatient ? <BackButton /> : null}
         </Header>
-
-        {!selectedPatient && <PatientList />}
-        {selectedPatient && <PatientProfile {...selectedPatient.attributes}/>}
-        <WoundList />
+        {selectedPatient ? <PatientProfile selectedPatient={selectedPatient}/> : <PatientList />}
+        <Footer />
       </div>
     );
   }

@@ -59,7 +59,7 @@ class WoundListItemContainer extends React.Component {
   render() {
     return (
       <div>
-        <WoundListItem wound={this.props.wound} resolveWound={this.onResolveAttempt}/>
+        <WoundListItem wound={this.props.wound} resolveWound={this.onResolveAttempt} showImage={this.state.showConfirmation} />
         {this.state.showConfirmation ? <Confirmation onConfirm={this.onResolveConfirm} onCancel={this.onResolveCancel} /> : null}
       </div>
     )

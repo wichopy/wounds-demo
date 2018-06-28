@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "type": "patients",
+  "attributes": {
+    "firstName": "Devonte",
+    "lastName": "Stehr",
+    "dateOfBirth": "2011-11-23T18:57:32.082Z",
+    "address": "43562 Rollin Streets",
+    "roomNumber": 37,
+    "bedNumber": 8,
+    "avatarUrl": "https://s3.amazonaws.com/uifaces/faces/twitter/alagoon/128.jpg",
+    "updatedAt": "2017-11-30T01:42:08.175Z"
+  },
+  "relationships": {
+    "wounds": {
+      "links": {
+        "related": "http://0.0.0.0:3000/patients/1/wounds"
+      }
+    }
+  }
+}

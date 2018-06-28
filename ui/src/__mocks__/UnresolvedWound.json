@@ -1,0 +1,14 @@
+{
+	"type": "wounds",
+	"id": 1,
+	"attributes": {
+		"patientId": 1,
+		"type": "Blister",
+		"bodyLocation": "Hips",
+		"inHouseAcquired": false,
+		"resolved": false,
+		"imageUrl": "https://cdn.pixabay.com/photo/2013/04/22/01/13/wound-106374_960_720.jpg",
+		"createdAt": "2011-09-04T08:27:49.164Z",
+		"updatedAt": "2011-09-04T08:27:49.164Z"
+	}
+}
