@@ -38,9 +38,28 @@ export function* getPatientWounds() {
   }
 }
 
-// //fetch patients on app load.
+export function patchWoundApi(resolvedWound) {
+  const woundId = resolvedWound.woundId
+  const payload = { data: resolvedWound.resolvedWound }
+
+  return Network.patch(`/wounds/${woundId}`, payload)
+}
+
+export function* patchWound(resolvedWound) {
+  const patchedWound = yield call(patchWoundApi, resolvedWound)
+  yield put(actions.woundResolveSuccess(patchedWound))
+}
+
+export function* resolveWound() {
+  while(true) {
+    let { resolvedWound } = yield take(actions.REQUEST_WOUND_RESOLVE)
+    yield fork(patchWound, resolvedWound)
+  }
+}
+
 export default function* root() {
   yield fork(startup)
   yield fork(getPatientWounds)
+  yield fork(resolveWound)
 }
 

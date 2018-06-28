@@ -8,17 +8,27 @@ const StyledDiv = styled.div`
   padding: 8px;
   cursor: pointer;
 
+  & * {
+    margin-left: 0.25em;
+  }
+
   &:hover {
     background-color: #2ab7ca;
     cursor: pointer;
+  }
+
+  img {
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid black;
   }
 `
 const PatientListItem = ({ onClick, id, firstName, lastName, avatarUrl, dateOfBirth }) => {
   return (
     <StyledDiv onClick={() => onClick(id)}>
-      <img src={avatarUrl} alt={'The user profile of '+ firstName + ' ' + lastName} style={{ height: '50px', borderRadius: '25px', border: '2px solid black'}}/>
-      <span style={{ marginLeft: '8px' }}><b>NAME:</b> {lastName}, {firstName}</span>
-      <span style={{ marginLeft: '8px' }}><b>DOB:</b> {moment(dateOfBirth).format('MMM DD YYYY')}</span>
+      <img src={avatarUrl} alt={'The user profile of '+ firstName + ' ' + lastName}/>
+      <span><b>NAME:</b> {lastName}, {firstName}</span>
+      <span><b>DOB:</b> {moment(dateOfBirth).format('MMM DD YYYY')}</span>
     </StyledDiv>
   )
 }

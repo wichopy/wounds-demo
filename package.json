@@ -18,6 +18,8 @@
     "url": "https://github.com/wichopy/wounds-demo-api/issues"
   },
   "homepage": "https://github.com/wichopy/wounds-demo-api#readme",
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.6.1"
+  },
   "devDependencies": {}
 }
