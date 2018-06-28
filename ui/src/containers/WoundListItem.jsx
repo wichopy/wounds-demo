@@ -12,7 +12,8 @@ class WoundListItemContainer extends React.Component {
 
   static defaultState = {
     showConfirmation: false,
-    woundToResolve: undefined
+    woundToResolve: undefined,
+    showImage: false
   };
 
   state = WoundListItemContainer.defaultState;
@@ -20,13 +21,17 @@ class WoundListItemContainer extends React.Component {
   onResolveAttempt = wound => {
     this.setState({
       showConfirmation: true,
-      woundToResolve: wound
+      woundToResolve: wound,
+      showImage: true
     });
   };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.patchSuccess) {
-      this.setState({ showConfirmation: false });
+      this.setState({
+        showConfirmation: false,
+        showImage: false
+      });
     }
   }
 
@@ -56,13 +61,18 @@ class WoundListItemContainer extends React.Component {
     this.setState(WoundListItemContainer.defaultState);
   };
 
+  toggleImage = () => {
+    this.setState({ showImage: !this.state.showImage });
+  };
+
   render() {
     return (
       <div>
         <WoundListItem
           wound={this.props.wound}
           resolveWound={this.onResolveAttempt}
-          showImage={this.state.showConfirmation}
+          showImage={this.state.showImage}
+          toggleResolvedImage={this.toggleImage}
         />
         {this.state.showConfirmation ? (
           <Confirmation

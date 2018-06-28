@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
   background-color: ${props => (props.resolved ? "#8ed8e2" : "#f22720")};
   border-bottom: 1px solid black;
   &:hover {
-    cursor: ${props => (props.resolved ? "default" : "pointer")};
+    cursor: pointer;
     background-color: ${props => (props.resolved ? "#9ed9e2" : "#f8938f")};
   }
 
@@ -20,7 +20,12 @@ const StyledDiv = styled.div`
     height: 20em;
   }
 `;
-const WoundListItem = ({ wound, resolveWound, showImage }) => {
+const WoundListItem = ({
+  wound,
+  resolveWound,
+  showImage,
+  toggleResolvedImage
+}) => {
   const {
     type,
     bodyLocation,
@@ -31,7 +36,9 @@ const WoundListItem = ({ wound, resolveWound, showImage }) => {
   return (
     <StyledDiv
       resolved={resolved}
-      onClick={!!!resolved && (() => resolveWound(wound))}
+      onClick={
+        !resolved ? () => resolveWound(wound) : () => toggleResolvedImage()
+      }
     >
       <div className="text">
         <p>Type: {type}</p>
