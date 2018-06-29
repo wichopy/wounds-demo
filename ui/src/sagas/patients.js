@@ -4,6 +4,7 @@ import * as actions from "../actions";
 
 function fetchPatientsApi() {
   return Network.get("/patients").then(res => res.data);
+  // TODO: Handle error
 }
 
 export function* getAllPatients() {
