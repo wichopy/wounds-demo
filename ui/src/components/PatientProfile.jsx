@@ -20,7 +20,7 @@ const StyledDiv = styled.div`
     justify-self: center;
   }
 
-  patient-info {
+  .patient-info {
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 2;
