@@ -1,10 +1,10 @@
 class Network {
   get = endpoint => {
-    return fetch(endpoint).then(response => response.json());
+    return fetch('wounds-api' + endpoint).then(response => response.json());
   };
 
   patch = (endpoint, payload) => {
-    return fetch(endpoint, {
+    return fetch('wounds-api' + endpoint, {
       body: JSON.stringify(payload),
       method: "PATCH"
     }).then(response => response.json());

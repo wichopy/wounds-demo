@@ -20,6 +20,7 @@ const server = Hapi.server({
 })
 
 // -------------------------- Routing -------------------------- //
+server.realm.modifiers.route.prefix = '/wounds-api'
 
 Object.values(routes)
   .forEach(route => {
